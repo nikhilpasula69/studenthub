@@ -1,69 +1,140 @@
-import Image from "next/image";
+import {
+  BookOpen,
+  CalendarDays,
+  CheckCircle2,
+  FolderKanban,
+  Target,
+  Trophy,
+} from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+
+const modules = [
+  {
+    icon: CheckCircle2,
+    title: "Tasks",
+    description: "Plan coursework, subtasks, and deadlines.",
+  },
+  {
+    icon: CalendarDays,
+    title: "Calendar",
+    description: "Track classes, exams, and recurring events.",
+  },
+  {
+    icon: BookOpen,
+    title: "Courses",
+    description: "Keep syllabi, attendance, and notes together.",
+  },
+  {
+    icon: FolderKanban,
+    title: "Projects",
+    description: "Build a public portfolio from real work.",
+  },
+  {
+    icon: Target,
+    title: "Goals & Habits",
+    description: "Turn semester goals into daily progress.",
+  },
+  {
+    icon: Trophy,
+    title: "Achievements",
+    description: "Showcase awards, internships, and leadership.",
+  },
+];
+
+const stack = [
+  "Next.js 16 · App Router",
+  "TypeScript · strict mode",
+  "Tailwind CSS v4",
+  "shadcn/ui",
+  "Prisma + PostgreSQL",
+  "TanStack Query",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_at_top,var(--color-muted),transparent_65%)]"
+      />
+
+      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
+        <div className="flex items-center gap-2.5">
+          <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <BookOpen className="size-4" />
+          </span>
+          <span className="text-base font-semibold tracking-tight">
+            StudentHub
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <span className="rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground">
+          Phase 0 · Step 1
+        </span>
+      </header>
+
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center px-6 pt-16 pb-24 text-center sm:pt-24">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground">
+          <span className="size-1.5 rounded-full bg-emerald-500" />
+          Scaffold deployed and ready
+        </div>
+
+        <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+          Your entire student life, in one place.
+        </h1>
+        <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+          StudentHub brings tasks, events, courses, projects, notes, goals, and
+          habits together — with a public portfolio that grows as you do.
+        </p>
+
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <Button size="lg" className="px-5" disabled>
+            Dashboard coming next
+          </Button>
+          <Button size="lg" variant="outline" className="px-5" asChild>
+            <a
+              href="https://nextjs.org/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Next.js docs
+            </a>
+          </Button>
+        </div>
+
+        <div className="mt-20 grid w-full gap-3 text-left sm:grid-cols-2 lg:grid-cols-3">
+          {modules.map(({ icon: Icon, title, description }) => (
+            <div
+              key={title}
+              className="rounded-xl border border-border bg-card p-5 text-card-foreground shadow-xs"
+            >
+              <Icon className="size-5 text-muted-foreground" />
+              <h2 className="mt-4 font-medium">{title}</h2>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                {description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+          {stack.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
+            >
+              {item}
+            </span>
+          ))}
         </div>
       </main>
+
+      <footer className="border-t border-border">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-muted-foreground sm:flex-row">
+          <span>StudentHub · personal student operating system</span>
+          <span>Built with Next.js + shadcn/ui</span>
+        </div>
+      </footer>
     </div>
   );
 }
